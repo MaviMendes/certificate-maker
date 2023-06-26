@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gerador de certificados</title>
+</head>
+<body>
+   
+    <h1>Gerador de certificados</h1>
+    <div>
+    <form id="upload-form" method="post" enctype="multipart/form-data" action="http://localhost:5000/raw">
+        
+        <div>
+          <p>Digite o texto do certificado na primeira linha do csv:</p>
+          <p>Exemplo: 'var participou em var de var em var'</p>
+          <p>O seu csv deve conter a informação que deve ser substituída em cada 'var'.</p>
+          <p>Exemplo: data.csv <br>
+            var participou em var de var em var<br>
+            Bob Sponja,15/06/23,Aula de fazer hamburguer,Siri Cascudo School<br>
+            Patrick Estrela,14/06/23,Aula de fazer estrela,Desempregados.com<br>
+            Burro,13/06/2023 a 15/06/2023,Técnicas de fala para burros,Tão Tão Distante School
+            </p>
+          <p>Cada linha do csv será lida e cada campo vai substituir 'var' pela informação.</p>
+          <p>Exemplo de resultado final:</p>
+          <p>Bob Sponja participou em 15/06/23 de Aula de fazer hamburguer em Siri Cascudo School</p>
+          
+        </div>
+
+        <div>
+          <label for="csv_upload">Escolha arquivo .csv</label>
+          <input
+            type="file"
+            name="csv_file"
+            id="csv_upload"
+            accept=".csv"
+            multiple />
+        </div>
+
+        <div>
+            <button id="button" type="submit">Enviar</button>
+          </div>
+        </form>
+        <script src="script.js"></script> 
+</body>
+</html>
