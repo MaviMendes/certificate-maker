@@ -1,48 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Gerador de certificados</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@600&family=Inter:wght@100;200;400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Gerador de certificados</title>
 </head>
+
 <body>
-   
-    <h1>Gerador de certificados</h1>
-    <div>
-    <form id="upload-form" method="post" enctype="multipart/form-data" action="http://localhost:5000/raw">
-        
-        <div>
-          <p>Digite o texto do certificado na primeira linha do csv:</p>
-          <p>Exemplo: 'var participou em var de var em var'</p>
-          <p>O seu csv deve conter a informação que deve ser substituída em cada 'var'.</p>
-          <p>Exemplo: data.csv <br>
-            var participou em var de var em var<br>
-            Bob Sponja,15/06/23,Aula de fazer hamburguer,Siri Cascudo School<br>
-            Patrick Estrela,14/06/23,Aula de fazer estrela,Desempregados.com<br>
-            Burro,13/06/2023 a 15/06/2023,Técnicas de fala para burros,Tão Tão Distante School
-            </p>
-          <p>Cada linha do csv será lida e cada campo vai substituir 'var' pela informação.</p>
-          <p>Exemplo de resultado final:</p>
-          <p>Bob Sponja participou em 15/06/23 de Aula de fazer hamburguer em Siri Cascudo School</p>
-          
-        </div>
 
-        <div>
-          <label for="csv_upload">Escolha arquivo .csv</label>
-          <input
-            type="file"
-            name="csv_file"
-            id="csv_upload"
-            accept=".csv"
-            multiple />
-        </div>
+  <section class="container text-center align-self-center">
+    <p class="logo ">Gerador de certificados <br> online</p>
+    <a href="./main/main.html" >
+      <button type="button" class="btn btn-primary btn-lg mt-5">Vamos nessa !</button>
+    </a>
+  </section>
 
-        <div>
-            <button id="button" type="submit">Enviar</button>
-          </div>
-        </form>
-        <script src="script.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>

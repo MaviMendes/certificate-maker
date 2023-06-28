@@ -1,0 +1,11 @@
+.logo { 
+    font-size: 70px;
+    font-family: 'Belanosima', sans-serif;
+    color: #1A5C71;
+    
+}
+
+body { 
+    height: 100vh;
+    display: flex;
+}
