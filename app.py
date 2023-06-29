@@ -37,26 +37,29 @@ def upload_page():
 
 @app.route('/', methods = ['POST','GET']) # go back to the root directory to access the raw folder
 def uploadfile():
-   if request.method == 'POST':
+
+   if request.method == 'POST': # check if the method is post
+       
       csv_file = request.files['csv_file']
       
-      if csv_file:
+      if check_extension(csv_file.filename):
             # Save the file in the 'raw' folder
-            raw_folder = os.path.join(app.root_path, 'raw')
-            csv_file.save(os.path.join(raw_folder, csv_file.filename))
+         raw_folder = os.path.join(app.root_path, 'raw')
+         csv_file.save(os.path.join(raw_folder, csv_file.filename))
 
          # process the file creating the certificates
          
-      file_path = os.path.join(raw_folder, csv_file.filename)
-      process.main(file_path)
+         file_path = os.path.join(raw_folder, csv_file.filename)
+         process.main(file_path)
 
-      # TO DO -  return a render templlate here, a page with a button to go to the home page
-      return render_template('retrieve/retrieve.html') # Display the page with the download button
+         # TO DO -  return a render templlate here, a page with a button to go to the home page
+         return render_template('retrieve/retrieve.html') # Display the page with the download button
    
-   else:
+      else:
+
+         return render_template('error/error.html')
       
-      return render_template('error/error.html')
-      
+
 
 
 # https://www.youtube.com/watch?v=8ZqDKFjW7Vs
