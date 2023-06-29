@@ -28,6 +28,16 @@
         <div class="modal-body">
           <h5>Digite o texto do certificado na primeira linha do CSV</h5>
           <p>Exemplo: var participou em var de var em var</p>
+          <p>O seu csv deve conter a informação que deve ser substituída em cada 'var'.</p>
+          <p>Exemplo: data.csv <br>
+            var participou em var de var em var<br>
+            Bob Sponja,15/06/23,Aula de fazer hamburguer,Siri Cascudo School<br>
+            Patrick Estrela,14/06/23,Aula de fazer estrela,Desempregados.com<br>
+            Burro,13/06/2023 a 15/06/2023,Técnicas de fala para burros,Tão Tão Distante School
+            </p>
+          <p>Cada linha do csv será lida e cada campo vai substituir 'var' pela informação.</p>
+          <p>Exemplo de resultado final:</p>
+          <p>Bob Sponja participou em 15/06/23 de Aula de fazer hamburguer em Siri Cascudo School</p>
         </div>
         <div class="modal-footer">
           <button type="submit" onclick="closeModal()" class="btn-primary">Entendido ! </button>       
