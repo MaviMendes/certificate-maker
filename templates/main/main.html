@@ -38,7 +38,7 @@
 
 
   <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <form id="upload-form" method="post" enctype="multipart/form-data" action="http://localhost:5000/raw">
+    <form id="upload-form" method="post" enctype="multipart/form-data" action="{{ url_for('uploadfile') }}">
       <div class="mb-3">
         <label for="csv_upload"  class="form-label">Escolha arquivo .csv</label>
         <input  class="form-control" 

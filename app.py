@@ -15,7 +15,7 @@ id = str(id)
 app = Flask(__name__)
 
 # Defining the upload folder
-raw_folder = "raw/"
+raw_folder = "../../raw/"
 
 # Configuring the upload folder
 app.config['RAW_FOLDER'] = raw_folder
@@ -28,31 +28,34 @@ def check_extension(filename):
 
 # The path for uploading the file
 @app.route('/')
-def upload_csv():
+def welcome_page():
    return render_template('index.html')
 
-@app.route('/raw', methods = ['POST','GET'])
+@app.route('/upload-page')
+def upload_page():
+    return render_template('main/main.html')
+
+@app.route('/', methods = ['POST','GET']) # go back to the root directory to access the raw folder
 def uploadfile():
-   if request.method == 'POST': # check if the method is post
-      f = request.files['csv_file'] # get the file from the files object
-      # Saving the file in the required destination
+   if request.method == 'POST':
+      csv_file = request.files['csv_file']
       
-      file_name = id+'_'+f.filename
+      if csv_file:
+            # Save the file in the 'raw' folder
+            raw_folder = os.path.join(app.root_path, 'raw')
+            csv_file.save(os.path.join(raw_folder, csv_file.filename))
 
-      if check_extension(f.filename):
-         f.save(os.path.join(app.config['RAW_FOLDER'] ,secure_filename(file_name))) # this will secure the file
-         
          # process the file creating the certificates
-         file_name = id+'_'+f.filename
-         file_path = 'raw/'+file_name
-         process.main(file_path)
-
-         # TO DO -  return a render templlate here, a page with a button to go to the home page
-         return render_template('retrieve.html') # Display the page with the download button
-      
-      else:
          
-         return render_template('error.html')
+      file_path = os.path.join(raw_folder, csv_file.filename)
+      process.main(file_path)
+
+      # TO DO -  return a render templlate here, a page with a button to go to the home page
+      return render_template('retrieve/retrieve.html') # Display the page with the download button
+   
+   else:
+      
+      return render_template('error/error.html')
       
 
 
